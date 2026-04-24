@@ -44,7 +44,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       <div className="flex flex-wrap gap-4 mb-12">
         {project.techStack.map((tech) => (
           <span key={tech} className="text-sm text-stone-500">
-            // {tech.toUpperCase()}
+            {"// "}{tech.toUpperCase()}
           </span>
         ))}
       </div>

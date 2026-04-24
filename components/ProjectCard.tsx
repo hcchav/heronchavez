@@ -28,7 +28,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             key={tech}
             className="text-xs text-stone-500"
           >
-            // {tech.toUpperCase()}
+            {"// "}{tech.toUpperCase()}
           </span>
         ))}
       </div>

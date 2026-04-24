@@ -21,7 +21,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="text-xs hover:text-lime-500 transition-colors"
               >
-                // GITHUB
+                {"// GITHUB"}
               </a>
               <a
                 href="https://linkedin.com/in/heronchavez"
@@ -29,13 +29,13 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="text-xs hover:text-lime-500 transition-colors"
               >
-                // LINKEDIN
+                {"// LINKEDIN"}
               </a>
               <a
                 href="mailto:heroncchavez@gmail.com"
                 className="text-xs hover:text-lime-500 transition-colors"
               >
-                // EMAIL
+                {"// EMAIL"}
               </a>
             </div>
           </div>

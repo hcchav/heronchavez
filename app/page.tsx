@@ -78,15 +78,15 @@ export default function Home() {
               </div>
               <div>
                 <p className="text-stone-500 mb-1">• TECH</p>
-                <p className="font-bold">// {featuredProject.techStack.slice(0, 2).join(' / ')}</p>
+                <p className="font-bold">{"// "}{featuredProject.techStack.slice(0, 2).join(' / ')}</p>
               </div>
               <div>
                 <p className="text-stone-500 mb-1">• ROLE</p>
-                <p className="font-bold">// FULL-STACK DEVELOPMENT</p>
+                <p className="font-bold">{"// FULL-STACK DEVELOPMENT"}</p>
               </div>
               <div>
                 <p className="text-stone-500 mb-1">• STATUS</p>
-                <p className="font-bold">// COMPLETE</p>
+                <p className="font-bold">{"// COMPLETE"}</p>
               </div>
             </div>
 
