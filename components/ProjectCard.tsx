@@ -11,7 +11,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
     <div className="border-t border-stone-300 py-8 group">
       <div className="flex items-start justify-between mb-4">
         <p className="text-xs text-stone-500">P/{String(index + 1).padStart(2, '0')}</p>
-        <p className="text-xs text-stone-500">2024</p>
+        <p className="text-xs text-stone-500">{project.year || 2026}</p>
       </div>
       
       <h3 className="text-2xl font-bold tracking-tight mb-3 group-hover:text-lime-500 transition-colors">

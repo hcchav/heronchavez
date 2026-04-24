@@ -22,7 +22,7 @@ export default function Home() {
             
             <div className="mt-12">
               <span className="text-lime-500 text-6xl md:text-8xl font-bold tracking-tighter">
-                FOLIO<br />/2024
+                FOLIO<br />/2026
               </span>
             </div>
           </div>
@@ -74,7 +74,7 @@ export default function Home() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-xs">
               <div>
                 <p className="text-stone-500 mb-1">• YEAR</p>
-                <p className="font-bold">2024</p>
+                <p className="font-bold">2026</p>
               </div>
               <div>
                 <p className="text-stone-500 mb-1">• TECH</p>
@@ -105,9 +105,15 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="max-w-7xl mx-auto px-6 py-12 border-t border-stone-300">
+      <section className="max-w-7xl mx-auto px-6 py-12 border-t border-stone-300 relative">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          {/* Social Links */}
           <div>
+            <div className="flex flex-col gap-2 mb-8">
+              <a href="mailto:heroncchavez@gmail.com" className="brutalist-btn inline-block w-fit">EMAIL →</a>
+              <a href="https://github.com/hcchav" target="_blank" rel="noopener noreferrer" className="brutalist-btn inline-block w-fit">GITHUB →</a>
+              <a href="https://linkedin.com/in/heronchavez" target="_blank" rel="noopener noreferrer" className="brutalist-btn inline-block w-fit">LINKEDIN →</a>
+            </div>
             <p className="text-xs text-stone-500 mb-2">• ABOUT</p>
             <h3 className="text-xl font-bold">WHAT I DO</h3>
           </div>
@@ -122,6 +128,13 @@ export default function Home() {
               <span className="brutalist-btn">SUPPORT OPS</span>
             </div>
           </div>
+        </div>
+        
+        {/* Large Year Badge */}
+        <div className="absolute bottom-4 right-6 hidden lg:block">
+          <span className="text-stone-200 text-[120px] font-bold tracking-tighter leading-none">
+            H/26
+          </span>
         </div>
       </section>
     </div>

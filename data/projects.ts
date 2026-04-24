@@ -9,6 +9,7 @@ export interface Project {
   solution: string
   howItWorks: string[]
   featured?: boolean
+  year?: number
 }
 
 export const projects: Project[] = [
@@ -28,6 +29,7 @@ export const projects: Project[] = [
       'Returns structured JSON response',
     ],
     featured: true,
+    year: 2026,
   },
 ]
 
