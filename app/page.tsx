@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { projects } from '@/data/projects'
+import CTAButtons from '@/components/CTAButtons'
 
 export default function Home() {
   const featuredProject = projects[0]
@@ -25,6 +26,9 @@ export default function Home() {
                 FOLIO<br />/2026
               </span>
             </div>
+            
+            {/* CTA Buttons */}
+            <CTAButtons />
           </div>
 
           {/* Right: Profile Image */}
