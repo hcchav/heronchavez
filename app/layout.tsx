@@ -10,6 +10,9 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Heron Chavez | Support Operations & Automation',
   description: 'Portfolio showcasing automation, AI workflows, and support operations projects.',
+  icons: {
+    icon: '/favicon.svg',
+  },
 }
 
 export default function RootLayout({

@@ -7,6 +7,13 @@ export const initPostHog = () => {
       person_profiles: 'identified_only',
       capture_pageview: true,
       capture_pageleave: true,
+      disable_session_recording: true,
+      autocapture: false,
+      loaded: (posthog) => {
+        if (process.env.NODE_ENV === 'development') {
+          posthog.debug()
+        }
+      },
     })
   }
 }

@@ -37,9 +37,9 @@ export default function Home() {
               <Image
                 src="/profile.jpg"
                 alt="Heron Chavez"
-                width={320}
-                height={320}
-                className="grayscale hover:grayscale-0 transition-all duration-500 border border-stone-900"
+                width={400}
+                height={400}
+                className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[400px] xl:h-[400px] object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-stone-900"
                 priority
               />
             </div>
