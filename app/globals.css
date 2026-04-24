@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-stone-100 text-stone-900;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+::selection {
+  @apply bg-lime-400 text-stone-900;
+}
+
+@layer utilities {
+  .brutalist-border {
+    @apply border border-stone-900;
+  }
+  .brutalist-btn {
+    @apply border border-stone-900 px-4 py-2 text-xs uppercase tracking-wider hover:bg-stone-900 hover:text-stone-100 transition-colors;
+  }
+  .accent-text {
+    @apply text-lime-500;
+  }
+}
