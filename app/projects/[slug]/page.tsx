@@ -107,38 +107,40 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       </div>
 
       {/* Links */}
-      <div className="border-t border-stone-300 pt-8 flex flex-wrap gap-4">
-        {hasLoom && (
-          <a
-            href={project.loomUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="brutalist-btn"
-          >
-            WATCH DEMO →
-          </a>
-        )}
-        {hasPowerBi && (
-          <a
-            href={project.powerBiUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="brutalist-btn"
-          >
-            OPEN DASHBOARD →
-          </a>
-        )}
-        {project.githubUrl && (
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="brutalist-btn"
-          >
-            VIEW ON GITHUB →
-          </a>
-        )}
-      </div>
+      {(hasLoom || hasPowerBi || project.githubUrl) && (
+        <div className="border-t border-stone-300 pt-8 flex flex-wrap gap-4">
+          {hasLoom && (
+            <a
+              href={project.loomUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="brutalist-btn"
+            >
+              WATCH DEMO →
+            </a>
+          )}
+          {hasPowerBi && (
+            <a
+              href={project.powerBiUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="brutalist-btn"
+            >
+              OPEN DASHBOARD →
+            </a>
+          )}
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="brutalist-btn"
+            >
+              VIEW ON GITHUB →
+            </a>
+          )}
+        </div>
+      )}
     </div>
   )
 }
