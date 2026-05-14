@@ -95,15 +95,17 @@ export default function Home() {
             </div>
 
             {/* Project Preview */}
-            <div className="mt-8 border border-stone-900 aspect-video overflow-hidden bg-stone-900">
-              <iframe
-                src={featuredProject.loomUrl.replace('/share/', '/embed/')}
-                frameBorder="0"
-                allowFullScreen
-                className="w-full h-full"
-                title={`${featuredProject.title} Demo`}
-              />
-            </div>
+            {featuredProject.loomUrl && (
+              <div className="mt-8 border border-stone-900 aspect-video overflow-hidden bg-stone-900">
+                <iframe
+                  src={featuredProject.loomUrl.replace('/share/', '/embed/')}
+                  frameBorder="0"
+                  allowFullScreen
+                  className="w-full h-full"
+                  title={`${featuredProject.title} Demo`}
+                />
+              </div>
+            )}
           </div>
         </div>
       </section>

@@ -20,7 +20,9 @@ export default function ProjectPage({ params }: ProjectPageProps) {
     notFound()
   }
 
-  const loomEmbedUrl = project.loomUrl.replace('/share/', '/embed/')
+  const loomEmbedUrl = project.loomUrl?.replace('/share/', '/embed/')
+  const hasPowerBi = !!project.powerBiUrl
+  const hasLoom = !!project.loomUrl
 
   return (
     <div className="min-h-screen max-w-7xl mx-auto px-6 py-12">
@@ -49,16 +51,28 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         ))}
       </div>
 
-      {/* Video */}
-      <div className="border border-stone-900 aspect-video mb-12 bg-stone-900">
-        <iframe
-          src={loomEmbedUrl}
-          frameBorder="0"
-          allowFullScreen
-          className="w-full h-full"
-          title={`${project.title} Demo`}
-        />
-      </div>
+      {/* Video / Power BI Embed */}
+      {hasPowerBi ? (
+        <div className="border border-stone-900 mb-12 bg-stone-900" style={{ aspectRatio: '1024/612' }}>
+          <iframe
+            src={project.powerBiUrl}
+            frameBorder="0"
+            allowFullScreen
+            className="w-full h-full"
+            title={`${project.title} Dashboard`}
+          />
+        </div>
+      ) : hasLoom ? (
+        <div className="border border-stone-900 aspect-video mb-12 bg-stone-900">
+          <iframe
+            src={loomEmbedUrl}
+            frameBorder="0"
+            allowFullScreen
+            className="w-full h-full"
+            title={`${project.title} Demo`}
+          />
+        </div>
+      ) : null}
 
       {/* Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-12">
@@ -94,22 +108,36 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
       {/* Links */}
       <div className="border-t border-stone-300 pt-8 flex flex-wrap gap-4">
-        <a
-          href={project.loomUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="brutalist-btn"
-        >
-          WATCH DEMO →
-        </a>
-        <a
-          href={project.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="brutalist-btn"
-        >
-          VIEW ON GITHUB →
-        </a>
+        {hasLoom && (
+          <a
+            href={project.loomUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="brutalist-btn"
+          >
+            WATCH DEMO →
+          </a>
+        )}
+        {hasPowerBi && (
+          <a
+            href={project.powerBiUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="brutalist-btn"
+          >
+            OPEN DASHBOARD →
+          </a>
+        )}
+        {project.githubUrl && (
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="brutalist-btn"
+          >
+            VIEW ON GITHUB →
+          </a>
+        )}
       </div>
     </div>
   )

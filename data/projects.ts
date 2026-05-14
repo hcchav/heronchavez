@@ -3,8 +3,10 @@ export interface Project {
   title: string
   description: string
   techStack: string[]
-  loomUrl: string
-  githubUrl: string
+  loomUrl?: string
+  githubUrl?: string
+  powerBiUrl?: string
+  thumbnailUrl?: string
   problem: string
   solution: string
   howItWorks: string[]
@@ -29,6 +31,24 @@ export const projects: Project[] = [
       'Returns structured JSON response',
     ],
     featured: true,
+    year: 2026,
+  },
+  {
+    slug: 'laboratory-operations-dashboard',
+    title: 'Laboratory Operations Dashboard',
+    description: 'A Power BI dashboard tracking lab sample processing, turnaround times, and operational metrics.',
+    techStack: ['Power BI', 'DAX', 'SQL', 'Data Modeling'],
+    powerBiUrl: 'https://app.powerbi.com/view?r=eyJrIjoiZDVmMjAwNDUtNjQ4OS00Y2M5LTgwZDktZGJkNjdlMzM0ZGFhIiwidCI6IjJiZjliNjhhLTBkNDctNDcwNS1hYTEwLTQ2NzU1Y2U4ZDEzYyIsImMiOjZ9',
+    thumbnailUrl: '/projects/lab-dashboard-thumb.png',
+    problem: 'Lab managers lacked visibility into sample processing status, turnaround times, and bottlenecks across test types and locations.',
+    solution: 'Built an interactive Power BI dashboard that provides real-time insights into lab operations, enabling data-driven decisions.',
+    howItWorks: [
+      'Connects to lab database for real-time data',
+      'Calculates KPIs like turnaround time and overdue samples',
+      'Visualizes status breakdown by test type and location',
+      'Enables filtering by year, quarter, month, and priority',
+    ],
+    featured: false,
     year: 2026,
   },
 ]
