@@ -34,22 +34,36 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       </div>
 
       <div className="flex flex-wrap gap-3">
-        <a
-          href={project.loomUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="brutalist-btn"
-        >
-          WATCH DEMO →
-        </a>
-        <a
-          href={project.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="brutalist-btn"
-        >
-          VIEW CODE →
-        </a>
+        {project.loomUrl && (
+          <a
+            href={project.loomUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="brutalist-btn"
+          >
+            WATCH DEMO →
+          </a>
+        )}
+        {project.powerBiUrl && (
+          <a
+            href={project.powerBiUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="brutalist-btn"
+          >
+            OPEN DASHBOARD →
+          </a>
+        )}
+        {project.githubUrl && (
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="brutalist-btn"
+          >
+            VIEW CODE →
+          </a>
+        )}
         <Link
           href={`/projects/${project.slug}`}
           className="brutalist-btn"
