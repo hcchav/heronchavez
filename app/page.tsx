@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { projects } from '@/data/projects'
+import { projects, getFeaturedProjects } from '@/data/projects'
 import CTAButtons from '@/components/CTAButtons'
 
 export default function Home() {
-  const featuredProject = projects[0]
+  const featuredProjects = getFeaturedProjects()
 
   return (
     <div className="min-h-screen">
@@ -47,66 +47,68 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Project Showcase */}
+      {/* Featured Projects */}
       <section className="max-w-7xl mx-auto px-6 py-12 border-t border-stone-300">
-        {/* Navigation */}
-        <div className="flex items-center justify-between mb-8">
-          <span className="text-xs text-stone-400">01 / {String(projects.length).padStart(2, '0')}</span>
-          <div className="flex-1 mx-8 flex items-center justify-center">
-            <div className="h-px bg-stone-300 w-full max-w-xs"></div>
-          </div>
-          <Link href="/projects" className="text-xs text-stone-500 hover:text-stone-900 transition-colors">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-12">
+          <h2 className="text-2xl font-bold">FEATURED PROJECTS</h2>
+          <Link href="/projects" className="brutalist-btn">
             VIEW ALL →
           </Link>
         </div>
 
-        {/* Project Info */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div>
-            <p className="text-xs text-stone-500 mb-2">P/01</p>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-              {featuredProject.title.toUpperCase().replace(' ', '\n')}
-            </h2>
-            
-            <Link href={`/projects/${featuredProject.slug}`} className="brutalist-btn inline-flex items-center gap-2">
-              VISIT →
-            </Link>
-          </div>
+        {/* Projects Grid */}
+        <div className="space-y-16">
+          {featuredProjects.map((project, index) => (
+            <div key={project.slug} className="grid grid-cols-1 lg:grid-cols-2 gap-12 border-t border-stone-300 pt-8">
+              <div>
+                <p className="text-xs text-stone-500 mb-2">P/{String(index + 1).padStart(2, '0')}</p>
+                <h3 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                  {project.title.toUpperCase()}
+                </h3>
+                <p className="text-sm text-stone-600 mb-6 max-w-md">
+                  {project.description.toUpperCase()}
+                </p>
+                
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.techStack.map((tech) => (
+                    <span key={tech} className="text-xs text-stone-500">
+                      {"// "}{tech.toUpperCase()}
+                    </span>
+                  ))}
+                </div>
+                
+                <Link href={`/projects/${project.slug}`} className="brutalist-btn inline-flex items-center gap-2">
+                  VIEW PROJECT →
+                </Link>
+              </div>
 
-          {/* Project Metadata */}
-          <div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-xs">
+              {/* Project Preview */}
               <div>
-                <p className="text-stone-500 mb-1">• YEAR</p>
-                <p className="font-bold">2026</p>
-              </div>
-              <div>
-                <p className="text-stone-500 mb-1">• TECH</p>
-                <p className="font-bold">{"// "}{featuredProject.techStack.slice(0, 2).join(' / ')}</p>
-              </div>
-              <div>
-                <p className="text-stone-500 mb-1">• ROLE</p>
-                <p className="font-bold">{"// FULL-STACK DEVELOPMENT"}</p>
-              </div>
-              <div>
-                <p className="text-stone-500 mb-1">• STATUS</p>
-                <p className="font-bold">{"// COMPLETE"}</p>
+                {project.thumbnailUrl ? (
+                  <Link href={`/projects/${project.slug}`} className="block border border-stone-900 aspect-video overflow-hidden hover:opacity-90 transition-opacity">
+                    <Image
+                      src={project.thumbnailUrl}
+                      alt={project.title}
+                      width={1024}
+                      height={612}
+                      className="w-full h-full object-cover"
+                    />
+                  </Link>
+                ) : project.loomUrl ? (
+                  <div className="border border-stone-900 aspect-video overflow-hidden bg-stone-900">
+                    <iframe
+                      src={project.loomUrl.replace('/share/', '/embed/')}
+                      frameBorder="0"
+                      allowFullScreen
+                      className="w-full h-full"
+                      title={`${project.title} Demo`}
+                    />
+                  </div>
+                ) : null}
               </div>
             </div>
-
-            {/* Project Preview */}
-            {featuredProject.loomUrl && (
-              <div className="mt-8 border border-stone-900 aspect-video overflow-hidden bg-stone-900">
-                <iframe
-                  src={featuredProject.loomUrl.replace('/share/', '/embed/')}
-                  frameBorder="0"
-                  allowFullScreen
-                  className="w-full h-full"
-                  title={`${featuredProject.title} Demo`}
-                />
-              </div>
-            )}
-          </div>
+          ))}
         </div>
       </section>
 

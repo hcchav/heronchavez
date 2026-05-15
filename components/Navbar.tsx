@@ -12,9 +12,6 @@ export default function Navbar() {
           <Link href="/projects" className="brutalist-btn text-[10px] md:text-xs">
             • PROJECTS
           </Link>
-          <Link href="mailto:heroncchavez@gmail.com" className="brutalist-btn text-[10px] md:text-xs">
-            • INFO
-          </Link>
         </div>
       </div>
     </nav>

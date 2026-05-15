@@ -57,6 +57,7 @@ export const projects: Project[] = [
     description: 'A Power BI dashboard tracking ticket volume, SLA compliance, backlog health, and escalation metrics.',
     techStack: ['Power BI', 'DAX', 'SQL', 'Data Modeling'],
     powerBiUrl: 'https://app.powerbi.com/view?r=eyJrIjoiZDc1OWViN2EtZjhjMi00ZTUxLWIxM2ItMGEyYTllMTc4ZDVjIiwidCI6IjJiZjliNjhhLTBkNDctNDcwNS1hYTEwLTQ2NzU1Y2U4ZDEzYyIsImMiOjZ9',
+    thumbnailUrl: '/projects/software-support-thumb.png',
     problem: 'Support managers lacked visibility into ticket trends, SLA performance, backlog aging, and escalation patterns across product areas.',
     solution: 'Built an interactive Power BI dashboard that provides real-time insights into support operations KPIs and trends.',
     howItWorks: [
@@ -65,7 +66,7 @@ export const projects: Project[] = [
       'Visualizes backlog aging distribution',
       'Enables filtering by priority, product area, and issue category',
     ],
-    featured: false,
+    featured: true,
     year: 2026,
   },
 ]
